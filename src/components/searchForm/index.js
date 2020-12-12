@@ -75,7 +75,7 @@ export default function SearchForm({ selected }) {
             ref={register({ required: true })}
             className={`border ${
               errors.origin ? 'border-red-500' : 'border-gray-300'
-            } rounded h-10`}
+            } rounded h-10 pl-2 text-indigo-500`}
             type='text'
           />
         </div>
@@ -87,7 +87,7 @@ export default function SearchForm({ selected }) {
             ref={register({ required: true })}
             className={`border ${
               errors.destination ? 'border-red-500' : 'border-gray-300'
-            } rounded h-10`}
+            } rounded h-10 pl-2 text-indigo-500`}
             type='text'
           />
         </div>
@@ -101,7 +101,7 @@ export default function SearchForm({ selected }) {
             ref={register({ required: true })}
             className={`border ${
               errors.departureDate ? 'border-red-500' : 'border-gray-300'
-            } rounded h-10`}
+            } rounded h-10 pl-2`}
             type='date'
           />
         </div>
@@ -111,7 +111,7 @@ export default function SearchForm({ selected }) {
             disabled={tripType === 'oneWay'}
             className={`border  ${
               errors.returnDate ? 'border-red-500' : 'border-gray-300'
-            } rounded h-10`}
+            } rounded h-10 pl-2`}
             name='returnDate'
             id='returnDate'
             min={watch('departureDate')}
@@ -127,7 +127,7 @@ export default function SearchForm({ selected }) {
             name='passengerCount'
             id='passengerCount'
             ref={register({ required: true })}
-            className='border border-gray-300 rounded h-10 w-full'
+            className='border border-gray-300 rounded h-10 w-full pl-2'
             type='number'
             min='1'
             max='9'
@@ -135,7 +135,10 @@ export default function SearchForm({ selected }) {
         </div>
         <div className='flex flex-col w-full md:w-1/2'>
           <label className='text-xs'>Promo Code</label>
-          <input className='border border-gray-300 rounded h-10' type='text' />
+          <input
+            className='border border-gray-300 rounded h-10 pl-2'
+            type='text'
+          />
         </div>
       </div>
       <button className='bg-indigo-500 text-white self-end py-1 px-2 rounded'>

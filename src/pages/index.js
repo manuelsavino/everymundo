@@ -2,14 +2,15 @@ import { useState } from 'react';
 import Head from 'next/head';
 import Modal from 'react-modal';
 import { v4 as uuidv4 } from 'uuid';
-
 import Card from '../components/card';
 import SearchForm from '../components/searchForm';
 import { Close } from '../components/icons';
 
+import { getPopularRoutes } from '../utils/getData';
+
 Modal.setAppElement('#__next');
 
-export default function Home({ results }) {
+export default function Home({ results, errors }) {
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState({});
 
@@ -38,20 +39,26 @@ export default function Home({ results }) {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <main className='w-3/4 mx-atuo grid xs:grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-10'>
-        {results.map((fare) => (
-          <Card
-            fare={fare}
-            key={uuidv4()}
-            toggleModal={toggleModal}
-            setSelected={setSelected}
-          />
-        ))}
+      <main className='w-3/4 mx-atuo '>
+        <h2 className='text-3xl text-indigo-500 mb-5'>Popular Routes</h2>
+        {console.log(errors)}
+        {errors && <p>{errors}</p>}
+        <div className='grid xs:grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-7'>
+          {results &&
+            results.map((fare) => (
+              <Card
+                fare={fare}
+                key={uuidv4()}
+                toggleModal={toggleModal}
+                setSelected={setSelected}
+              />
+            ))}
+        </div>
       </main>
       <Modal
         isOpen={isOpen}
         onRequestClose={toggleModal}
-        contentLabel='My dialog'
+        contentLabel='Search Modal'
         style={customStyles}
       >
         <button className='absolute top-3 right-3' onClick={toggleModal}>
@@ -68,9 +75,10 @@ export default function Home({ results }) {
 }
 
 Home.getInitialProps = async () => {
-  const res = await fetch(
-    'https://everymundotechnical.herokuapp.com/popularRoutes/PU0534299c'
-  );
-  const json = await res.json();
-  return { results: json };
+  try {
+    const data = await getPopularRoutes();
+    return { results: data.data };
+  } catch (err) {
+    return { errors: 'Something went wrong' };
+  }
 };

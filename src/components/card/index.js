@@ -5,7 +5,7 @@ export default function Card({ fare, toggleModal, setSelected }) {
     <div className='border flex justify-center items-center flex-col border-gray-200 rounded-lg cursor-pointer hover:shadow-md'>
       <div
         className='w-full h-44 bg-cover bg-center rounded-tr-lg rounded-tl-lg'
-        style={{ backgroundImage: `url(./${fare.destination}.jpg)` }}
+        style={{ backgroundImage: `url(${fare.routeCoverImage})` }}
       />
       <div className='flex justify-start flex-col items-star w-full p-5'>
         <h5 className='flex items-center text-xl font-medium'>

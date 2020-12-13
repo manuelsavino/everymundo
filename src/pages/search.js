@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import ResultsTable from '../components/resultsTable';
 import { getFares } from '../utils/getData';
+import Link from 'next/link';
 
 export default function Search({ results, errors }) {
   return (
@@ -11,7 +12,12 @@ export default function Search({ results, errors }) {
       </Head>
 
       <main className=' w-11/12 md:w-full mx-auto px-0'>
-        <h2 className='text-3xl text-indigo-500 mb-5'>Choose Your Flight(s)</h2>
+        <Link href='/'>
+          <a className="inline bg-indigo-500 hover:bg-indigo-700 rounded py-2 px-5  items-center justify-center text-white mt-4 self-start'">
+            Go Back
+          </a>
+        </Link>
+        <h2 className='text-3xl text-indigo-500 my-5'>Choose Your Flight(s)</h2>
         {results && <ResultsTable results={results} />}
         {errors && (
           <p className='text-red-500'>

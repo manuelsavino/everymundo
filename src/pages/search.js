@@ -10,11 +10,14 @@ export default function Search({ results, errors }) {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <main className=' w-11/12 md:w-full mx-auto px-5'>
+      <main className=' w-11/12 md:w-full mx-auto px-0'>
         <h2 className='text-3xl text-indigo-500 mb-5'>Choose Your Flight(s)</h2>
         {results && <ResultsTable results={results} />}
-        {console.log(errors)}
-        {errors && <p>Something went wrong</p>}
+        {errors && (
+          <p className='text-red-500'>
+            Something went wrong, please try again.
+          </p>
+        )}
       </main>
     </div>
   );

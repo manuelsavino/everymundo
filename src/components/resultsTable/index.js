@@ -26,7 +26,7 @@ export default function ResultsTable({ results }) {
             <td className='border-b border-gray-100  text-indigo-500 text-lg pl-2 pt-6'>
               Departure
             </td>
-            <td className='border-b border-gray-100  text-indigo-500 text-lg pl-2 pt-6'>
+            <td className='border-b border-gray-100  text-indigo-500 text-lg px-2 pt-6'>
               Arrival
             </td>
             <td className='border-b border-gray-100 hidden md:table-cell text-indigo-500 text-lg pl-2 pt-6'>
@@ -45,7 +45,7 @@ export default function ResultsTable({ results }) {
                 <td className='border-b border-gray-100 py-3 pl-2'>
                   {convertTime(routes.departureTime)}
                 </td>
-                <td className='border-b border-gray-100 py-3 pl-2'>
+                <td className='border-b border-gray-100 py-3 px-0'>
                   {convertTime(routes.arrivalTime)}
                 </td>
                 <td className='border-b border-gray-100 hidden md:table-cell py-3 pl-2'>

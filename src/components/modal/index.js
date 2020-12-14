@@ -2,7 +2,7 @@ import Modal from 'react-modal';
 import SearchForm from '../searchForm';
 import { Close } from '../icons';
 
-Modal.setAppElement('#__next');
+if (process.env.NODE_ENV !== 'test') Modal.setAppElement('#__next');
 
 export default function SearchModal({ isOpen, toggleModal, routeOptions }) {
   const customStyles = {

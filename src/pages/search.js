@@ -7,7 +7,7 @@ export default function Search({ results, errors }) {
   return (
     <div className='container mx-auto flex justify-center py-6'>
       <Head>
-        <title>Search</title>
+        <title>Search Fares</title>
         <link rel='icon' href='/favicon.ico' />
       </Head>
 

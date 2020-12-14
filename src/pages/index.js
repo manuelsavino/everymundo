@@ -4,10 +4,7 @@ import Modal from 'react-modal';
 import { v4 as uuidv4 } from 'uuid';
 import Card from '../components/card';
 import SearchModal from '../components/modal';
-
 import { getPopularRoutes } from '../utils/getData';
-
-Modal.setAppElement('#__next');
 
 export default function Home({ results, errors }) {
   const [selected, setSelected] = useState({});
